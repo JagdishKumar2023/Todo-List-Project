@@ -13,6 +13,7 @@ displayTodo();
 function displayTodo() {
   let tbody = document.querySelector("tbody");
   tbody.innerHTML = "";
+
   todoData.map(function (ele, idx, arr) {
     let tr = document.createElement("tr");
 
@@ -37,6 +38,7 @@ function displayTodo() {
     tbody.append(tr);
   });
 }
+// SOME  DOUT HER IN THE CODE
 
 function completeFunction(idx, completeTd) {
   console.log(idx);
