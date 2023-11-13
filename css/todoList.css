@@ -19,6 +19,7 @@ thead > tr > th {
   padding: 10px 15px;
   color: white;
   cursor: pointer;
+  min-width: 100px;
 }
 
 tbody > tr > td {
@@ -27,3 +28,6 @@ tbody > tr > td {
   text-align: center;
 }
 
+.completeTd {
+  cursor: pointer;
+}

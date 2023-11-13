@@ -16,6 +16,9 @@ function displayTodo() {
 
   todoData.map(function (ele, idx, arr) {
     let tr = document.createElement("tr");
+    tr.style = ele.isCompleted
+      ? "background-color : green"
+      : "background-color: red";
 
     let sNoTd = document.createElement("td");
     sNoTd.innerText = idx + 1;
@@ -24,35 +27,23 @@ function displayTodo() {
     todoTd.innerText = ele.todo;
 
     let statusTd = document.createElement("td");
-    statusTd.innerText = ele.isCompleted ? "completed" : "not completed";
+    statusTd.innerText = ele.isCompleted ? "Done" : "Pending";
 
     let completeTd = document.createElement("td");
-    completeTd.innerText = "complete";
+    completeTd.innerText = ele.isCompleted ? "Pending" : "Done";
     completeTd.setAttribute("class", "completeTd");
 
     completeTd.addEventListener("click", function () {
-      completeFunction(idx, completeTd);
+      completeFunction(idx);
     });
 
     tr.append(sNoTd, todoTd, statusTd, completeTd);
     tbody.append(tr);
   });
 }
-// SOME  DOUT HER IN THE CODE
+// some doubt here in this code
 
-function completeFunction(idx, completeTd) {
-  console.log(idx);
-
-  let updatedData = todoData.map(function (ele, id) {
-    if (idx === id) {
-      return {
-        ...ele,
-        isCompleted: !ele.isCompleted,
-      };
-    }
-    return ele;
-  });
-  localStorage.setItem("todoData", JSON.stringify(updatedData));
-
+function completeFunction(idx) {
+  todoData[idx].isCompleted = !todoData[idx].isCompleted;
   displayTodo();
 }
