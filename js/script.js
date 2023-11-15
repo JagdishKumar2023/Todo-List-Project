@@ -8,7 +8,7 @@ submitTodoBtn.addEventListener("click", function () {
 
   let todoData = {
     todo: todoValue,
-    isCompleted: false,
+    isCompleted: false, // starting value is false
   };
 
   if (todoData.todo) {
