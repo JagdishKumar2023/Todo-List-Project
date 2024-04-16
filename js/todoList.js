@@ -14,7 +14,7 @@ function displayTodo() {
   let tbody = document.querySelector("tbody");
   tbody.innerHTML = "";
 
-  todoData.map(function (ele, idx, arr) {
+  todoData.map(function (ele, idx) {
     let tr = document.createElement("tr");
     tr.style = ele.isCompleted
       ? "background-color : green"
